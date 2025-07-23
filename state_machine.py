@@ -4,9 +4,9 @@
 实现可扩展的状态机系统，用于管理游戏菜单导航和状态转换。
 支持动态状态注册、状态转换监控和错误恢复。
 
-Author: Game Automation Team
+Author: Salieri
 Version: 2.0.0
-Date: 2024-12
+Date: 2025-07
 """
 
 import time

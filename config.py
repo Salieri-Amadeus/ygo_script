@@ -4,9 +4,9 @@
 此模块包含游戏自动化脚本的所有配置参数和设置。
 通过集中管理配置，可以轻松调整脚本行为而无需修改核心代码。
 
-Author: Game Automation Team
+Author: Salieri
 Version: 2.0.0
-Date: 2024-12
+Date: 2025-07
 """
 
 import json

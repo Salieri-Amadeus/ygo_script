@@ -4,9 +4,9 @@
 这是游戏自动化系统的入口程序。
 整合了配置管理、日志系统、计算机视觉和状态机模块。
 
-Author: Game Automation Team
+Author: Salieri
 Version: 2.0.0
-Date: 2024-12
+Date: 2025-07
 
 Usage:
     python main.py                    # 使用默认配置运行

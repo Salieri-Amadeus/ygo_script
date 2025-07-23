@@ -4,9 +4,9 @@
 提供统一的日志记录功能，支持多种日志级别和输出格式。
 自动管理日志文件轮转和大小控制。
 
-Author: Game Automation Team
+Author: Salieri
 Version: 2.0.0
-Date: 2024-12
+Date: 2025-07
 """
 
 import logging
