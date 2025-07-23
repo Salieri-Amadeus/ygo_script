@@ -1,5 +1,7 @@
-# 游戏自动化脚本依赖库
-# Game Automation Script Dependencies
+# 游戏自动化脚本依赖库 v2.0
+# Game Automation Script Dependencies v2.0
+
+# === 核心依赖 (必需) ===
 
 # 计算机视觉和图像处理
 opencv-python>=4.5.0
@@ -16,8 +18,57 @@ mss>=6.1.0
 # 键盘和鼠标监听控制
 pynput>=1.7.0
 
-# 可选依赖 (用于未来功能扩展)
-# Pillow>=8.0.0              # 图像处理增强
-# psutil>=5.8.0               # 系统监控
-# configparser>=5.0.0         # 配置文件处理
-# tkinter                     # GUI界面 (通常随Python安装)
+# === v2.0 新增功能依赖 ===
+
+# 类型注解支持 (Python < 3.8)
+typing-extensions>=4.0.0; python_version < "3.8"
+
+# JSON配置文件处理 (内置json模块已足够，此行仅作说明)
+# json - 使用Python内置模块
+
+# 日志系统 (内置logging模块已足够，此行仅作说明)  
+# logging - 使用Python内置模块
+
+# 命令行参数解析 (内置argparse模块已足够，此行仅作说明)
+# argparse - 使用Python内置模块
+
+# === 可选依赖 (用于功能扩展) ===
+
+# 图像处理增强
+# Pillow>=8.0.0
+
+# 系统监控和性能分析
+# psutil>=5.8.0
+
+# 更强大的配置文件处理
+# configparser>=5.0.0
+
+# GUI界面开发 (通常随Python安装)
+# tkinter
+
+# 数据分析和可视化
+# pandas>=1.3.0
+# matplotlib>=3.4.0
+
+# Web界面 (未来可能的功能)
+# flask>=2.0.0
+# fastapi>=0.70.0
+
+# 数据库支持 (未来可能的功能)
+# sqlite3 - 使用Python内置模块
+# sqlalchemy>=1.4.0
+
+# === 开发依赖 (仅开发时需要) ===
+
+# 代码格式化
+# black>=22.0.0
+
+# 类型检查
+# mypy>=0.910
+
+# 单元测试
+# pytest>=6.0.0
+# pytest-cov>=3.0.0
+
+# 文档生成
+# sphinx>=4.0.0
