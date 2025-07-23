@@ -1,0 +1,48 @@
+{
+  "_comment": "游戏自动化系统配置文件示例",
+  "_description": "复制此文件为 config.json 并根据需要修改参数",
+  
+  "vision": {
+    "_comment": "计算机视觉相关配置",
+    "threshold": 0.8,
+    "timeout": 5,
+    "check_interval": 0.5,
+    "retries": 3,
+    "delay_between_retries": 2.0,
+    "click_duration": 0.2,
+    "post_click_delay": 1.0
+  },
+  
+  "state_machine": {
+    "_comment": "状态机相关配置",
+    "initial_state": "undefined_menu",
+    "max_stop_count": 5,
+    "break_count": 8,
+    "fallback_key": "esc",
+    "state_transition_delay": 0.1
+  },
+  
+  "paths": {
+    "_comment": "路径相关配置",
+    "images_dir": "images",
+    "logs_dir": "logs",
+    "config_file": "config.json"
+  },
+  
+  "logging": {
+    "_comment": "日志相关配置",
+    "log_level": "INFO",
+    "log_format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "max_log_size": 10485760,
+    "backup_count": 5
+  },
+  
+  "_configuration_tips": {
+    "vision.threshold": "图像匹配阈值，0.7-0.9之间，值越高匹配越严格",
+    "vision.timeout": "图像等待超时时间（秒），建议5-15秒",
+    "vision.retries": "失败重试次数，建议2-5次",
+    "state_machine.max_stop_count": "状态重复检测次数，建议3-10次",
+    "state_machine.break_count": "强制中断次数，建议是max_stop_count的1.5-2倍",
+    "logging.log_level": "日志级别: DEBUG(详细) | INFO(常规) | WARNING(警告) | ERROR(错误)"
+  }
+}

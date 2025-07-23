@@ -4,6 +4,17 @@
 
 ## 🚀 功能特性
 
+### 🆕 v2.0 新架构特性
+- **模块化设计**: 将功能拆分为独立的模块，便于维护和扩展
+- **配置管理**: 支持JSON配置文件，集中管理所有参数
+- **完整日志系统**: 多级别日志记录，支持文件轮转和彩色输出
+- **交互模式**: 提供命令行交互界面，便于调试和控制
+- **统计分析**: 详细的执行统计和性能分析
+- **API文档**: 完整的API参考文档和使用示例
+- **类型注解**: 全面的类型提示，提高代码可维护性
+- **错误恢复**: 增强的错误处理和自动恢复机制
+
+### 🔧 核心功能
 - **状态机导航**: 使用状态机模式自动在不同游戏菜单之间导航
 - **计算机视觉**: 通过图像识别检测UI元素并执行操作
 - **错误恢复**: 内置重试机制和错误处理
@@ -30,8 +41,13 @@ pip install pynput
 
 ```
 .
-├── test.py              # 主程序文件，包含状态机逻辑
-├── vision_utils.py      # 计算机视觉工具函数
+├── main.py              # 主程序入口 (v2.0新架构)
+├── config.py            # 配置管理模块
+├── logger.py            # 日志系统模块
+├── vision.py            # 计算机视觉模块 (重构版)
+├── state_machine.py     # 状态机模块 (重构版)
+├── test.py              # 原始程序文件 (兼容性保留)
+├── vision_utils.py      # 原始视觉工具 (兼容性保留)
 ├── images/              # UI元素截图文件夹
 │   ├── btn_solo.png     # 单人游戏按钮
 │   ├── btn_train.png    # 训练按钮
@@ -39,7 +55,13 @@ pip install pynput
 │   ├── btn_play.png     # 开始游戏按钮
 │   ├── btn_level.png    # 关卡选择按钮
 │   └── ...              # 其他UI元素
-└── README.md            # 项目说明文档
+├── logs/                # 日志文件目录 (自动创建)
+├── docs/                # 文档目录
+│   └── API.md           # API 参考文档
+├── config.json          # 配置文件 (可选)
+├── requirements.txt     # 依赖库清单
+├── README.md            # 项目说明文档
+└── TODO.md              # 开发任务清单
 ```
 
 ## 🎮 支持的游戏状态
@@ -57,6 +79,8 @@ pip install pynput
 
 ## 🚀 使用方法
 
+### 🔧 安装和配置
+
 1. **安装依赖**:
    ```bash
    pip install -r requirements.txt
@@ -64,17 +88,81 @@ pip install pynput
 
 2. **启动游戏**: 确保游戏在主显示器上运行
 
-3. **运行脚本**:
+### 📱 新架构使用 (推荐 v2.0)
+
+3. **基本运行**:
    ```bash
-   python test.py
+   python main.py                        # 使用默认配置运行
+   python main.py --config custom.json   # 使用自定义配置文件
+   python main.py --state start_menu     # 从指定状态开始
+   python main.py --stats                # 运行完成后显示统计信息
    ```
 
-4. **监控输出**: 脚本会在控制台显示当前状态和操作
+4. **交互模式**:
+   ```bash
+   python main.py --interactive          # 进入交互控制模式
+   ```
+
+5. **环境验证**:
+   ```bash
+   python main.py --validate-only        # 仅验证环境，不运行
+   ```
+
+### 🔄 兼容性使用 (原版本)
+
+6. **运行原版脚本**:
+   ```bash
+   python test.py                        # 运行原始版本
+   ```
 
 ## ⚙️ 配置选项
 
-在 `test.py` 中可以调整以下参数：
+### 💻 新架构配置 (v2.0)
 
+系统支持JSON配置文件，可以集中管理所有参数：
+
+**创建配置文件** `config.json`:
+```json
+{
+  "vision": {
+    "threshold": 0.8,
+    "timeout": 5,
+    "check_interval": 0.5,
+    "retries": 3,
+    "delay_between_retries": 2.0,
+    "click_duration": 0.2,
+    "post_click_delay": 1.0
+  },
+  "state_machine": {
+    "initial_state": "undefined_menu",
+    "max_stop_count": 5,
+    "break_count": 8,
+    "fallback_key": "esc",
+    "state_transition_delay": 0.1
+  },
+  "paths": {
+    "images_dir": "images",
+    "logs_dir": "logs",
+    "config_file": "config.json"
+  },
+  "logging": {
+    "log_level": "INFO",
+    "max_log_size": 10485760,
+    "backup_count": 5
+  }
+}
+```
+
+**主要配置参数说明:**
+- `vision.threshold`: 图像匹配阈值 (0.0-1.0)
+- `vision.timeout`: 图像等待超时时间 (秒)
+- `state_machine.max_stop_count`: 最大重复状态次数
+- `state_machine.break_count`: 最大中断次数
+- `logging.log_level`: 日志级别 (DEBUG/INFO/WARNING/ERROR)
+
+### 🔄 原版配置
+
+在 `test.py` 中可以调整以下参数：
 - `max_stop_cpt = 5`: 最大重复状态次数
 - `break_cpt = 8`: 最大中断次数  
 - `threshold=0.8`: 图像匹配阈值
