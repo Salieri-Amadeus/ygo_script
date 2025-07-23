@@ -1,0 +1,23 @@
+# 游戏自动化脚本依赖库
+# Game Automation Script Dependencies
+
+# 计算机视觉和图像处理
+opencv-python>=4.5.0
+
+# 数值计算和数组操作
+numpy>=1.19.0
+
+# GUI自动化和鼠标键盘控制
+pyautogui>=0.9.52
+
+# 高效屏幕截图
+mss>=6.1.0
+
+# 键盘和鼠标监听控制
+pynput>=1.7.0
+
+# 可选依赖 (用于未来功能扩展)
+# Pillow>=8.0.0              # 图像处理增强
+# psutil>=5.8.0               # 系统监控
+# configparser>=5.0.0         # 配置文件处理
+# tkinter                     # GUI界面 (通常随Python安装)
